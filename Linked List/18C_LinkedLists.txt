@@ -1,0 +1,49 @@
+Singularly Linked List
+
+Data|ptr ==> Data|ptr ==> Data|null
+1st Node      2nd Node      Last Node
+
+You know the node is the last node when the node pointer
+is 'null'
+
+When searching for an element in a linked list, there is
+no other option than to iterate through each element until the 
+correct element is found: This is BigO(n)
+
+Arrays access elements in BigO(1) because it uses the indexing
+form. The downside of this is the space required to increase the
+size of the array.
+
+Heads or tails
+---------------
+Data|ptr ==> Data|ptr ==> Data|null
+1st Node      2nd Node    Last Node
+ Head                       Tail
+
+When creating a linked list, its a good idea to reassign the tail to
+the last element that was added to the linked list. This allows you to 
+know where the end of the list is.
+
+FIFO and Queues
+FIFO - First In First Out
+Queue - Items are placed in an order
+
+[9:15]
+When removing an item from a Queue, you remove it from the front and
+you make the next element the 'head'
+
+[12:30]
+Doubly Linked List
+
+prev|Data|next<==>prev|Data|ptr<==>prev|Data|null
+    1st Node         2nd Node        Last Node
+
+In a doubly linked list, each node has a pointer/reference to the next AND 
+the previous node. This allows traveral through the list much easier.
+
+
+Note on Garbage Collection:
+Whenever an object is unreachable, the Garbage Collector (GC) will take
+it out of memory.
+
+

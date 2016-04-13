@@ -1,0 +1,64 @@
+IntelliJ  IDE
+
+Unit Testing [4 minutes]
+
+////Private Inner Class
+public class LinkedList {
+	private Node head;
+	...(other members)
+	...(other methods/functions)
+	private class Node{
+		...private members and 
+		...functions
+	}
+}
+
+Inner classes are for utility, typically.
+
+
+
+Node
+-----------------
+|	    |       |		1. add 5
+|  data | node  |		2. add 15
+|		|       |       3. add 7
+-----------------	    4. insert 18 @ index 1 
+
+-----------------		-------------------     -------------------
+|	    |		|       |         |		  |     |         |       |
+|  5    |   o========>  |   15    |  o========> |  7      | null  |
+|	    |		|       |		  |       |     |	      |	      |
+-----------------        -------------------     -------------------
+
+To insert between two nodes, you musthave the node before it (head w/ 5) to
+point to the node being inserted AND have the inserted node point to the
+node that (head w/5) was pointing to before the insert.
+
+To delete a node, you reverse the process. You take the node before it to
+point to the node after it and have the node being deleted point to NULL.
+
+
+Singly Linked List
+-----------------
+|		|		|
+|  data |	node|
+|		|		|
+-----------------
+Has one (node/pointer/link)
+
+Double Linked List
+--------------------------
+|      |		|		 |
+| node |  data  |  node  |
+|      |		|		 |
+--------------------------
+previous		 next
+has two nodes to hold previous and next links.
+
+
+
+
+Quiz #2 on Blackboard
+
+
+
