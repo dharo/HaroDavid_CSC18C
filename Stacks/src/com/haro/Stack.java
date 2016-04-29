@@ -81,12 +81,10 @@ class Stack<T> {
         //items = number of items currently stored in the stack
         return this.items;
     }
-    public void display()
-    {
+    public void display() {
         System.out.print("Current view of the stack: ");
         Node current=head;
-        for(int i=0;i<items;i++)
-        {
+        for(int i=0;i<items;i++) {
             System.out.print(current.getValue()+" ");
             current=current.getNext();
             if ( current==null ) break;
