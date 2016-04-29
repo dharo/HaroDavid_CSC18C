@@ -7,7 +7,7 @@ package com.haro;
  *       Ideal implementation will use a linked list instead of an array.
  */
 class Stack<T> {
-    private Node<T> head=null, tail=null;
+    private Node<T> head=null;
     private int items;
     private int size;
 
@@ -27,8 +27,7 @@ class Stack<T> {
 
 
     public boolean isEmpty() {
-        if(this.items == 0) return true;
-        else return false;
+        return this.items == 0;
     }
 
     public boolean isFull() {
@@ -48,8 +47,8 @@ class Stack<T> {
 
     public void push (T data){
         if (isEmpty()) {
-            head = new Node(data);
-            tail=head; // when first item is enqueued, head and tail are the same
+            head = new Node<T>(data);
+            //tail=head; // when first item is enqueued, head and tail are the same
             this.items++; // increment the number of items in the queue
         }
         else{
