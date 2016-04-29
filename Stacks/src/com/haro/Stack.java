@@ -5,7 +5,6 @@ package com.haro;
  *
  * Goal: Implement a method that grows the stack once the size is reached.
  *       Ideal implementation will use a linked list instead of an array.
- *       Maybe use a Queue...
  */
 class Stack<T> {
     private Node<T> head=null, tail=null;
@@ -14,9 +13,9 @@ class Stack<T> {
 
     //automatically make only an empty stack, just push and pop accordingly
     public Stack() {
-        //default size of 5
+        //default size of 2
         this.items = 0;
-        this.size = 5;
+        this.size = 2;
     }
 
     public Stack(int InitialStackSize) {
@@ -34,11 +33,20 @@ class Stack<T> {
 
     public boolean isFull() {
         //if # of items has reached size it is full
+        if(this.items == 0) return false;
         return (this.size == this.items );
     }
 
-    public void push(int data) {
-        // if head node is null, make head and tail node contain the first node
+    public T peek(){
+        T top = null;
+
+        if (head != null){
+            top = head.getValue();
+        }
+        return top;
+    }
+
+    public void push (T data){
         if (isEmpty()) {
             head = new Node(data);
             tail=head; // when first item is enqueued, head and tail are the same
@@ -47,35 +55,44 @@ class Stack<T> {
         else{
             if(isFull()) {
                 this.size++;
-                System.out.println("Increasing stack size");
+                System.out.println("Stack Limit reached: Increasing stack size");
             }
-            Node<T> newNode = new Node(data);
-            tail.setNext(newNode);
-            newNode.setPrevious(tail);
-            tail=newNode;
-            this.items++;
-
+            Node top = new Node<T>(data);
+            top.setNext(head);
+            head = top;
+            items++;
         }
     }
 
-    public T pop() {
-        T headDataValue = null;
-        if ( !isEmpty() ) {
-            headDataValue = head.getValue();
-            Node<T> oldHead=head;
-            head=head.getNext();
-            oldHead.setNext(null);
-            oldHead.setPrevious(null);
-            this.items--;
-            this.size--;
+    public T pop(){
+        T top = peek();
+        if (head != null){
+            head = head.getNext();
+            items--;
+            size--;
         }
-        return headDataValue;  // returns the data value from the popped head, null if queue empty
+        return top;
     }
+
     public int getSize(){
+        //size = number of items stack can hold
         return this.size;
     }
     public int getItems(){
+        //items = number of items currently stored in the stack
         return this.items;
+    }
+    public void display()
+    {
+        System.out.print("Current view of the stack: ");
+        Node current=head;
+        for(int i=0;i<items;i++)
+        {
+            System.out.print(current.getValue()+" ");
+            current=current.getNext();
+            if ( current==null ) break;
+        }
+        System.out.println();
     }
 ///////////////////Private Node Class ///////////////////////////
     //because arrays are whatever...
