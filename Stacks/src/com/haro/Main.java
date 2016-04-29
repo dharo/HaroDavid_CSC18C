@@ -61,6 +61,11 @@ public class Main {
 
         System.out.println("isFull(): "+Float_stack.isFull());
         System.out.println("isEmpty(): "+Float_stack.isEmpty());
+        System.out.println("# of items: "+Float_stack.getItems());
+        System.out.println("Size of stack: "+Float_stack.getSize());
+
+        //display stack
+        Float_stack.display();
 
         //print the stack
         for(int i = 0;i<size;i++)System.out.println("Popping item: "+Float_stack.pop());
@@ -69,6 +74,8 @@ public class Main {
         //Check if stack is full/empty
         System.out.println("isFull(): "+Float_stack.isFull());
         System.out.println("isEmpty(): "+Float_stack.isEmpty());
+        System.out.println("# of items: "+Float_stack.getItems());
+        System.out.println("Size of stack: "+Float_stack.getSize());
 
         /////////////////// DOUBLE STACK ////////////////////////////////////
         System.out.println("\n\nTesting Stack with Double");
@@ -84,7 +91,10 @@ public class Main {
 
         System.out.println("isFull(): "+Double_stack.isFull());
         System.out.println("isEmpty(): "+Double_stack.isEmpty());
+        System.out.println("# of items: "+Double_stack.getItems());
+        System.out.println("Size of stack: "+Double_stack.getSize());
 
+        Double_stack.display();
         //print the stack
         for(int i = 0;i<size;i++)System.out.println("Popping item: "+Double_stack.pop());
         //pop again after we popped all the items
@@ -107,7 +117,10 @@ public class Main {
 
         System.out.println("isFull(): "+String_stack.isFull());
         System.out.println("isEmpty(): "+String_stack.isEmpty());
+        System.out.println("# of items: "+String_stack.getItems());
+        System.out.println("Size of stack: "+String_stack.getSize());
 
+        String_stack.display();
         //print the stack
         for(int i = 0;i<size;i++)System.out.println("Popping item: "+String_stack.pop());
         //pop again after we popped all the items
@@ -130,7 +143,10 @@ public class Main {
 
         System.out.println("isFull(): "+random_stack.isFull());
         System.out.println("isEmpty(): "+random_stack.isEmpty());
+        System.out.println("# of items: "+random_stack.getItems());
+        System.out.println("Size of stack: "+random_stack.getSize());
 
+        random_stack.display();
         //print the stack
         for(int i = 0;i<size;i++)System.out.println("Popping item: "+random_stack.pop());
         //pop again after we popped all the items
