@@ -1,7 +1,7 @@
 package com.haro;
 
 /**
- * Created by d on 4/28/16.
+ * Created by david on 4/28/16.
  *
  * Goal: Implement a method that grows the stack once the size is reached.
  *       Ideal implementation will use a linked list instead of an array.
