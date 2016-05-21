@@ -1,45 +1,48 @@
 
 
 
-public class BinaryTree {
+public class BinaryTree<T> {
     
     private TreeNode root;
     
-    public BinaryTree()
-    {
+    public BinaryTree(){
         root = null;
     }
     
-    public void add(int data_item)
-    {
+    public void add(T data_item){
         root = insertNode(data_item,root);
     }
     
-    private TreeNode insertNode(int item, TreeNode subRoot)
-    {
-        if ( subRoot == null ) // tree is empty
-        {
+    //getData and items in this method should take any data type and convert to a
+    //numerical value which can be used to compare the values of node being inserted
+    //with node being compared to.
+    
+    @SuppressWarnings("unused")
+	private TreeNode insertNode(T item, TreeNode subRoot){
+    	int nodeCompare = item.toString().compareToIgnoreCase(subRoot.getData().toString());
+    	
+        if ( subRoot == null ){ // tree is empty
             return new TreeNode(item,null,null);
         }
-        else if ( item < subRoot.getData() ) // if item is less than subRoot's data item, traverse left
-        {
+        else if (nodeCompare < 0 ){ // if item is less than subRoot's data item, traverse left
+        
             subRoot.setLeftNode(insertNode(item,subRoot.getLeftNode()));
             return subRoot;
         }
-        else
-        {
+        else{
             subRoot.setRightNode(insertNode(item,subRoot.getRightNode()));
             return subRoot;
         }
     }
     
-    public boolean contains(int search_value)
-    {
+    //needs to search for any data type
+    //update with T
+    public boolean contains(T search_value){
         return checkInTree(search_value,root);
     }
     
-    private boolean checkInTree(int sv, TreeNode subRoot)
-    {
+    //fix for templated data
+    private boolean checkInTree(T sv, TreeNode subRoot){
         if ( subRoot == null ) return false;
         else if ( subRoot.getData()==sv) return true;
         else if ( sv < subRoot.getData() ) return checkInTree(sv, subRoot.getLeftNode());
@@ -50,34 +53,27 @@ public class BinaryTree {
     // methods for preorder, inorder, and postorder traversals
     ////////////////////////////////////////////////////////////////////
     
-    public void preOrderTraversal()
-    {
+    public void preOrderTraversal(){
         this.preOrder(root);       
         System.out.println();
     }
     
-    private void preOrder(TreeNode currentNode)
-    {
-        if (currentNode == null) 
-        {            
+    private void preOrder(TreeNode currentNode){
+        if (currentNode == null) {            
             return;
         }
-        
         System.out.print(currentNode.getData()+" ");
         this.preOrder(currentNode.getLeftNode());
         this.preOrder(currentNode.getRightNode());
     }
     
-    public void inOrderTraversal()
-    {
+    public void inOrderTraversal(){
         this.inOrder(root);       
         System.out.println();
     }
     
-    private void inOrder(TreeNode currentNode)
-    {
-        if (currentNode == null) 
-        {            
+    private void inOrder(TreeNode currentNode){
+        if (currentNode == null) {            
             return;
         }
         
@@ -86,16 +82,13 @@ public class BinaryTree {
         this.inOrder(currentNode.getRightNode());
     }
     
-    public void postOrderTraversal()
-    {
+    public void postOrderTraversal(){
         this.postOrder(root);       
         System.out.println();
     }
     
-    private void postOrder(TreeNode currentNode)
-    {
-        if (currentNode == null) 
-        {            
+    private void postOrder(TreeNode currentNode){
+        if (currentNode == null) {            
             return;
         }
         
@@ -105,15 +98,13 @@ public class BinaryTree {
     }
     
     ////////////////////////////////////////////////////////////////////
-    private class TreeNode
-    {
-        private int data;
+    private class TreeNode{
+        private T data;
         private TreeNode leftNode;
         private TreeNode rightNode;
         
-        public TreeNode(int newData, TreeNode left, TreeNode right)
-        {
-            this.data=newData;
+        public TreeNode(T item, TreeNode left, TreeNode right){
+            this.data=item;
             this.leftNode=left;
             this.rightNode=right;
         }
@@ -121,7 +112,7 @@ public class BinaryTree {
         /**
          * @return the data
          */
-        public int getData() {
+        public T getData() {
             return data;
         }
 
@@ -129,7 +120,7 @@ public class BinaryTree {
          * @param data the data to set
          */
         @SuppressWarnings("unused")
-		public void setData(int data) {
+		public void setData(T data) {
             this.data = data;
         }
 
