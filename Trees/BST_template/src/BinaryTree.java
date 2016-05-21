@@ -19,12 +19,12 @@ public class BinaryTree<T> {
     
     @SuppressWarnings("unused")
 	private TreeNode insertNode(T item, TreeNode subRoot){
-    	int nodeCompare = item.toString().compareToIgnoreCase(subRoot.getData().toString());
+    	//int nodeCompare = item.toString().compareToIgnoreCase(subRoot.getData().toString());
     	
         if ( subRoot == null ){ // tree is empty
             return new TreeNode(item,null,null);
         }
-        else if (nodeCompare < 0 ){ // if item is less than subRoot's data item, traverse left
+        else if (item.toString().compareToIgnoreCase(subRoot.getData().toString()) < 0 ){ // if item is less than subRoot's data item, traverse left
         
             subRoot.setLeftNode(insertNode(item,subRoot.getLeftNode()));
             return subRoot;
@@ -45,7 +45,9 @@ public class BinaryTree<T> {
     private boolean checkInTree(T sv, TreeNode subRoot){
         if ( subRoot == null ) return false;
         else if ( subRoot.getData()==sv) return true;
-        else if ( sv < subRoot.getData() ) return checkInTree(sv, subRoot.getLeftNode());
+        else if ( sv.toString().compareToIgnoreCase(subRoot.getData().toString()) < 0 ){
+        	return checkInTree(sv, subRoot.getLeftNode());
+        }
         else return checkInTree(sv, subRoot.getRightNode());
     }
     

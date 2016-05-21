@@ -1,40 +1,74 @@
-
+import java.util.Random;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 public class BinarySearchTree_template {
 
 	public static void main(String[] args) {
-BinaryTree myTree = new BinaryTree();
+		BinaryTree<Integer> IntTree    = new BinaryTree();
+        BinaryTree<String>  StringTree = new BinaryTree();
+        BinaryTree<Float>   FloatTree  = new BinaryTree();
         
-        // insert 8,12,6,5,9,13,11,10,7 into tree
-        
-        //myTree.add(8);
-        //myTree.add(12);
-        //myTree.add(6);
-        //myTree.add(5);
-        //myTree.add(9);
-        //myTree.add(13);
-        //myTree.add(11);
-        //myTree.add(10);
-        //myTree.add(7);
-        
-        //for(int i=0;i<15;i++)
-        //    System.out.printf("myTree.contains(%d) returned: %s\n",i,myTree.contains(i));
-        System.out.println("Enter an integer value and I will add it to the tree, and after");
-        System.out.println("adding it to the tree, I'll do the pre-order, in-order, and post-order");
-        System.out.println("traversals of what you have given me....");
-        
-        while(true)
-        {
-            System.out.print("Enter an integer: ");
-            int value = new java.util.Scanner(System.in).nextInt();
-            myTree.add(value);
-        
-            System.out.print("pre-order traversal: ");
-            myTree.preOrderTraversal();
-            System.out.print("in-order traversal: ");
-            myTree.inOrderTraversal();
-            System.out.print("post-order traversal: ");
-            myTree.postOrderTraversal();
+  
+        System.out.println("Templated Binary Search Tree Implementation");
+        System.out.println("Integer Based BST");
+        //Integer Binary Search Tree
+        Random semi_rand_int = new Random();
+        for(int i=1; i<=10;i++){
+        	int ran_val = semi_rand_int.nextInt(100);
+        	System.out.printf("Adding %d to IntTree\n",ran_val);
+        	IntTree.add(ran_val);
         }
+        
+        System.out.print("pre-order traversal: ");
+	    IntTree.preOrderTraversal();
+	    System.out.print("in-order traversal: ");
+	    IntTree.inOrderTraversal();
+	    System.out.print("post-order traversal: ");
+	    IntTree.postOrderTraversal();
+        /////////////////////////////////////////////////////////////////////////////
+        
+	    System.out.println("String Based BST");
+	    System.out.println("Strings are names which are read from a file...");
+	    final String dir = System.getProperty("user.dir");
+	    
+	    File file = new File(dir+"/src/names.txt");
+	    try {
+
+	        Scanner sc = new Scanner(file);
+
+	        while (sc.hasNextLine()) {
+	            String i = sc.nextLine();
+	            System.out.println(i);
+	            StringTree.add(i);
+	        }
+	        sc.close();
+	    } 
+	    catch (FileNotFoundException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    System.out.print("pre-order traversal: ");
+	    StringTree.preOrderTraversal();
+	    System.out.print("in-order traversal: ");
+	    StringTree.inOrderTraversal();
+	    System.out.print("post-order traversal: ");
+	    StringTree.postOrderTraversal();
+	    /////////////////////////////////////////////////////////////////////////////
+	    System.out.println("Float Based BST");
+	    
+	    for(int i=1; i<=10;i++){
+	    	Float ran_flt = semi_rand_int.nextFloat();
+        	System.out.printf("Adding %f to IntTree\n",ran_flt);
+        	FloatTree.add(ran_flt);
+        }
+	    
+	    System.out.print("pre-order traversal: ");
+	    FloatTree.preOrderTraversal();
+	    System.out.print("in-order traversal: ");
+	    FloatTree.inOrderTraversal();
+	    System.out.print("post-order traversal: ");
+	    FloatTree.postOrderTraversal();
 
 	}
 
