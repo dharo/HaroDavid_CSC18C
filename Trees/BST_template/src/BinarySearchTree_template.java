@@ -9,7 +9,6 @@ public class BinarySearchTree_template {
         BinaryTree<String>  StringTree = new BinaryTree();
         BinaryTree<Float>   FloatTree  = new BinaryTree();
         
-  
         System.out.println("Templated Binary Search Tree Implementation");
         System.out.println("Integer Based BST");
         //Integer Binary Search Tree
@@ -26,20 +25,21 @@ public class BinarySearchTree_template {
 	    IntTree.inOrderTraversal();
 	    System.out.print("post-order traversal: ");
 	    IntTree.postOrderTraversal();
+	    System.out.println("\n-------------------------------------------\n");
         /////////////////////////////////////////////////////////////////////////////
         
 	    System.out.println("String Based BST");
 	    System.out.println("Strings are names which are read from a file...");
 	    final String dir = System.getProperty("user.dir");
-	    
-	    File file = new File(dir+"/src/names.txt");
+	    File file = new File(dir+"/names.txt");
+	    System.out.println(dir+"/names.txt\n");
 	    try {
 
 	        Scanner sc = new Scanner(file);
 
 	        while (sc.hasNextLine()) {
 	            String i = sc.nextLine();
-	            System.out.println(i);
+	            System.out.printf("Adding %s to StringTree\n", i);
 	            StringTree.add(i);
 	        }
 	        sc.close();
@@ -54,12 +54,13 @@ public class BinarySearchTree_template {
 	    StringTree.inOrderTraversal();
 	    System.out.print("post-order traversal: ");
 	    StringTree.postOrderTraversal();
+	    System.out.println("\n-------------------------------------------\n");
 	    /////////////////////////////////////////////////////////////////////////////
 	    System.out.println("Float Based BST");
 	    
 	    for(int i=1; i<=10;i++){
 	    	Float ran_flt = semi_rand_int.nextFloat();
-        	System.out.printf("Adding %f to IntTree\n",ran_flt);
+        	System.out.printf("Adding %f to FloatTree\n",ran_flt);
         	FloatTree.add(ran_flt);
         }
 	    
@@ -69,6 +70,7 @@ public class BinarySearchTree_template {
 	    FloatTree.inOrderTraversal();
 	    System.out.print("post-order traversal: ");
 	    FloatTree.postOrderTraversal();
+	    System.out.println("\n-------------------------------------------\n");
 
 	}
 
