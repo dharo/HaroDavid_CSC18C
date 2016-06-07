@@ -15,7 +15,7 @@ public class Main {
        String infix =  "6 * (3+(7*8)*(5+2))";
        PostFix post = new PostFix();
        String output;
-       double result = 0;
+       double result;
        
        output = post.convertToPostFix(infix);
        result = post.evaluatePostFix(output);
