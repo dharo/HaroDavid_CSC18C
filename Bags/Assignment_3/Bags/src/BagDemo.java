@@ -30,6 +30,7 @@ public class BagDemo {
             bag_of_ints.add(numberOfelement);
             bag_of_floats.add(numberOfelement.floatValue());
         }
+        bag_of_strings.add("hello");
         System.out.println("David Haro CSC 18C Java Data Structures");
         System.out.println("Assignment # 3");
         System.out.println("Merge and Selection Sort");
