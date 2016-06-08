@@ -14,14 +14,14 @@ public class Main {
     public static void main(String[] args) {
        String infix =  "6 * (3+(7*8)*(5+2))";
        PostFix post = new PostFix();
-       String output;
+       String expr;
        double result;
        
-       output = post.convertToPostFix(infix);
-       result = post.evaluatePostFix(output);
+       expr = post.convertToPostFix(infix);
+       result = post.evaluatePostFix(expr);
        
        System.out.println("Infix notation "+infix);
-       System.out.println("PostFix notation of infix: "+output);
+       System.out.println("PostFix notation of infix: "+expr);
        System.out.println("PostFix notation evaluates to: "+result);
     }
 
